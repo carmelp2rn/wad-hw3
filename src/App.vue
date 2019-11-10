@@ -18,7 +18,8 @@
     import Controls from "./components/Controls";
     import Profile from "./components/Profile";
     import Header from "./components/Header";
-    import Courses from "./components/Courses"
+    import Courses from "./components/Courses";
+    import Footer from "./components/Footer";
     export default {
         name: 'app',
         components: {
@@ -26,6 +27,7 @@
             Profile,
             Header,
             Courses,
+            Footer
         },
         methods: {
             toggle: function () {

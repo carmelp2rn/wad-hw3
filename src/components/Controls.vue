@@ -16,19 +16,17 @@
         },
         methods: {
             toggleActive: function (isActive) {
-                if(!isActive){
+                if (!isActive) {
                     this.profileIsActive = !this.profileIsActive;
                     this.coursesIsActive = !this.coursesIsActive;
-                    this.$emit('toggle')
+                    this.$emit('toggle');
                 }
-
             }
         }
     }
 </script>
 
 <style scoped>
-
     .controls .pill {
         border: 1px solid #cbcbcb;
         background-color: #eaeaea;
@@ -39,14 +37,11 @@
         margin-top: -1px;
         outline: none !important;
     }
-
     .controls .pill.active {
         background-color: #ffffff;
         border-top: 1px solid #ffffff;
     }
-
     .controls .pill:hover {
         cursor: pointer;
     }
-
 </style>
