@@ -1,46 +1,44 @@
 <template>
     <footer>
-        <ul class="links">
+        <ul v-for="(link, index) in links" :key="index" class="links">
             <li>
-                <a href="https://ois2.ut.ee/" target="_blank">OIS</a>
-            </li>
-            <li>
-                <a href="https://courses.cs.ut.ee/" target="_blank">Courses</a>
+                <a v-bind:href="link.link" target="_blank">{{link.name}}</a>
             </li>
         </ul>
     </footer>
 </template>
 
 <script>
+    import Link from '../models/Link'
     export default {
-        name: "Footer"
+        name: "Footer",
+        data: () => {
+            return{
+                links: [new Link("https://ois2.ut.ee/", "ÕIS2"), new Link("https://courses.cs.ut.ee/", "Courses")]
+            }
+        }
     }
 </script>
 
 <style scoped>
     footer {
-        padding: 30px 0;
-        background-color: #607D8B;
-        margin-top: 10px;
-        height: 100px;
-        position: absolute;
-        bottom: 0;
+        padding-top:40px;
+        height: 90px;
+        position: fixed;
+        bottom:0px;
         width: 100%;
+		background-color: #001f3f;
     }
     footer .links {
-        display: block;
         width: 100%;
         max-width: 200px;
         margin: 0 auto;
-        color: #acd7ff;
-        font-size: 14px;
+        color: #DDDDDD;
+        font-size: 13px;
     }
+
     footer .links a {
         text-decoration: none;
         color: #acd7ff;
-    }
-    footer .links a:hover {
-        text-decoration: underline;
-        color: #337aff;
     }
 </style>
