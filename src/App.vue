@@ -5,7 +5,7 @@
             <section id="main">
                 <div class="content">
                     <Profile :gpa="gpa" ref="profile"/>
-                    <Courses/>
+                    <Courses :add="addGpa" ref="courses"/>
                 </div>
                 <Controls @toggle="toggle"/>
             </section>
@@ -29,12 +29,22 @@
             Courses,
 			Footer,
         },
+
+        data: () => {
+            return {
+                gpa: 2.75
+            }
+        },
         methods: {
             toggle: function () {
                 this.$refs.profile.toggleProfile();
                 this.$refs.courses.toggleCourses();
             },
-        },
+
+            addGpa: function (gpa) {
+                this.gpa = gpa;
+            }
+        }
 
     }
 </script>

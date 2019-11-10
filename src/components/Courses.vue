@@ -41,8 +41,8 @@
         name: "Courses",
         data: () => {
             return {
-                toggle:false,
-                isActive: true,
+                toggle: false,
+                isActive: false,
                 title: "",
                 semester: "",
                 grade: "",
@@ -58,14 +58,22 @@
             toggleCourses: function () {
                 this.isActive = !this.isActive;
             },
+
             resetFields: function(){
                 this.title = "";
                 this.semester = "";
                 this.grade = "";
             },
+
             toggleFields: function(){
                 this.toggle = !this.toggle;
             },
+
+            cancelButton: function(){
+                this.toggleFields();
+                this.resetFields();
+            },
+
             addButton: function () {
                 let title = this.title;
                 let semester = this.semester;
@@ -73,13 +81,43 @@
                 this.courses.push(new Course(title, semester, grade));
                 this.toggleFields();
                 this.resetFields();
-            },
-            cancelButton: function(){
-                this.toggleFields();
-                this.resetFields();
+                this.computeGPA();
             },
 
+            computeGPA: function () {
+                let grade = 0;
+                let points = 0;
+                for (let i = 0; i < this.courses.length; i++) {
+                    grade = this.courses[i].grade;
+                    let point = 0;
+                    if (grade > 90) {
+                        point = 4;
+                    }
+                    else if (grade > 80) {
+                        point = 3;
+                    }
+                    else if (grade > 70) {
+                        point = 2;
+                    }
+                    else if (grade > 60) {
+                        point = 1;
+                    }
+                    else if (grade > 50) {
+                        point = 0.5;
+                    }
+                    else if (grade <= 50) {
+                        point = 0;
+                    }
+                    points += point;
+                }
+                let Gpa = points/this.courses.length;
+                Gpa = Math.round(Gpa * 100) / 100;
+                this.$props.add(Gpa);
             }
+        },
+        props: {
+            add: Function
+        }
     }
 </script>
 

@@ -22,23 +22,27 @@
 
 <style scoped>
     footer {
-        padding-top:40px;
-        height: 90px;
-        position: fixed;
-        bottom:0px;
+        padding: 30px 0;
+        background-color: #001f3f;
+        margin-top: 10px;
+        height: 100px;
+        position: absolute;
+        bottom: 0;
         width: 100%;
-		background-color: #001f3f;
     }
     footer .links {
+        display: block;
         width: 100%;
         max-width: 200px;
         margin: 0 auto;
-        color: #DDDDDD;
-        font-size: 13px;
+        color: #acd7ff;
+        font-size: 11px;
     }
-
     footer .links a {
         text-decoration: none;
         color: #acd7ff;
+    }
+    footer .links a:hover {
+        text-decoration: underline;
     }
 </style>

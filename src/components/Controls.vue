@@ -1,7 +1,7 @@
 <template>
     <div class="controls">
-        <button id="profile-button" class="pill" :class="{active: profileIsActive}" @click="toggleActive(profileIsActive)">Profile</button>
-        <button id="courses-button" class="pill" :class="{active: coursesIsActive}" @click="toggleActive(coursesIsActive)">Courses</button>
+        <button id="profile-button" class="pill" :class="{active: profileActive}" @click="toggleActive(profileActive)">Profile</button>
+        <button id="courses-button" class="pill" :class="{active: coursesActive}" @click="toggleActive(coursesActive)">Courses</button>
     </div>
 </template>
 
@@ -10,15 +10,15 @@
         name: "Controls",
         data: () => {
             return{
-                profileIsActive: true,
-                coursesIsActive: false,
+                profileActive: true,
+                coursesActive: false,
             }
         },
         methods: {
             toggleActive: function (isActive) {
                 if (!isActive) {
-                    this.profileIsActive = !this.profileIsActive;
-                    this.coursesIsActive = !this.coursesIsActive;
+                    this.profileActive = !this.profileActive;
+                    this.coursesActive = !this.coursesActive;
                     this.$emit('toggle');
                 }
             }

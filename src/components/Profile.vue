@@ -11,6 +11,9 @@
                     <li id="faculty">{{user.faculty}}</li>
                 </ul>
             </div>
+            <div id="gpa">
+                <strong>{{user.gpa}}</strong>
+            </div>
             <div class="clear-fix"></div>
         </div>
     </div>
@@ -31,11 +34,15 @@
                 this.isActive = !this.isActive;
                 this.updateGPA();
             },
+            updateGPA: function () {
+                this.user.gpa = this.gpa;
+            }
         },
-
+        props: {
+            gpa: Number
+        }
     }
 </script>
-
 
 <style scoped>
     .tab {
