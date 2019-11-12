@@ -112,7 +112,7 @@
                 }
                 let Gpa = points/this.courses.length;
                 Gpa = Math.round(Gpa * 100) / 100;
-                this.$props.add(Gpa);
+                this.add(Gpa);
             }
         },
         props: {
